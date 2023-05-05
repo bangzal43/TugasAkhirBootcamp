@@ -11,19 +11,32 @@
                   <section>
                     <ul>
                       <div class="col-sm-13 text-left">
-                        <h3>Halaman Kategori</h3>
+                        <h3>Halaman Pengguna Mahasiswa</h3>
                         <p>
                         <p align="right"><a href="agamatambah.php"> <button class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></button></a>
                         </p>
                         <table class="table table-striped">
                           <tr>
                             <th class="text-danger">No</th>
-                            <th>Kategori</th>
+                            <th>Nim</th>
+                            <th>Nama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Jurusan</th>
+                            <th>alamat</th>
+                            <th>Tanggal Lahir</th>
+                            <th>No HP</th>
+                            <th>Opsi</th>
                           </tr>
                           @foreach ($data as $k => $d)
                           <tr>
                             <td>{{$k+1}}</td> 
-                            <td>{{$d->kategori}}</td>
+                            <td>{{$d->nim}}</td>
+                            <td>{{$d->nama}}</td>
+                            <td>{{$d->jk}}</td>
+                            <td>{{$d->jurusan}}</td>
+                            <td>{{$d->alamat}}</td>
+                            <td>{{$d->tanggal_lahir}}</td>
+                            <td>{{$d->nohp}}</td>
                           </tr>
                           @endforeach
                         </table>
