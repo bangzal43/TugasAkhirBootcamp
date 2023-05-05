@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('welcome');
 });
 
-Route::get('buku', function () {
-    return view('buku');
+Route::get('dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('kategori', function () {
@@ -33,5 +33,20 @@ Route::get('pengembalian', function () {
     return view('pengembalian');
 });
 
+Route::get('mahasiswa', function () {
+    return view('mahasiswa');
+});
+
+Route::get('petugas', function () {
+    return view('petugas');
+});
+//buku
 Route::get('/buku', 'BukuController@index');
+Route::get('/create', 'BukuController@create');
+Route::get('/store', 'BukuController@store');
+//kategori
 Route::get('/kategori', 'KategoriController@index');
+Route::get('/pengembalian', 'PengembalianController@index');
+Route::get('/peminjaman', 'PeminjamanController@index');
+Route::get('/mahasiswa', 'MahasiswaController@index');
+Route::get('/petugas', 'PetugasController@index');

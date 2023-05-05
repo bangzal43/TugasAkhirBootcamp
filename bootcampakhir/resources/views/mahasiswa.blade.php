@@ -11,31 +11,32 @@
                   <section>
                     <ul>
                       <div class="col-sm-13 text-left">
-                        <h3>Halaman Buku</h3>
+                        <h3>Halaman Pengguna Mahasiswa</h3>
                         <p>
                         <p align="right"><a href="agamatambah.php"> <button class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></button></a>
                         </p>
                         <table class="table table-striped">
                           <tr>
                             <th class="text-danger">No</th>
-                            <th>ID</th>
-                            <th>Buku</th>
-                            <th>Kategori</th>
-                            <th>Penulis</th>
-                            <th>Penerbit</th>
-                            <th>Tahun</th>
+                            <th>Nim</th>
+                            <th>Nama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Jurusan</th>
+                            <th>alamat</th>
+                            <th>Tanggal Lahir</th>
+                            <th>No HP</th>
                             <th>Opsi</th>
                           </tr>
                           @foreach ($data as $k => $d)
                           <tr>
-                        <td>{{$k+1}}</td> 
-                        <td>{{$d->id_buku}}</td>
-                        <td>{{$d->kategori}}</td>
-                        <td>{{$d->judul_buku}}</td>
-                        <td>{{$d->penulis_buku}}</td>
-                        <td>{{$d->penerbit_buku}}</td>
-                        <td>{{$d->tahun_penerbit}}</td>
-  
+                            <td>{{$k+1}}</td> 
+                            <td>{{$d->nim}}</td>
+                            <td>{{$d->nama}}</td>
+                            <td>{{$d->jk}}</td>
+                            <td>{{$d->jurusan}}</td>
+                            <td>{{$d->alamat}}</td>
+                            <td>{{$d->tanggal_lahir}}</td>
+                            <td>{{$d->nohp}}</td>
                           </tr>
                           @endforeach
                         </table>
