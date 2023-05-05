@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +21,16 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('dashboard', function () {
-    return view('dashboard');
+Route::get('/logout', function () {
+    return view('logout');
 });
 
-Route::get('buku', function () {
-    return view('buku');
+Route::post('/postlogin','LoginController@postlogin')->name('postlogin');
+
+Route::get('/logout','LoginController@logout')->name('logout');
+
+Route::get('dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('kategori', function () {
@@ -48,11 +52,14 @@ Route::get('mahasiswa', function () {
 Route::get('petugas', function () {
     return view('petugas');
 });
-
+//buku
 Route::get('/buku', 'BukuController@index');
+Route::get('/create', 'BukuController@create');
+Route::get('/store', 'BukuController@store');
+//kategori
 Route::get('/kategori', 'KategoriController@index');
 Route::get('/pengembalian', 'PengembalianController@index');
 Route::get('/peminjaman', 'PeminjamanController@index');
 Route::get('/mahasiswa', 'MahasiswaController@index');
 Route::get('/petugas', 'PetugasController@index');
-Route::post('/postlogin', 'LoginController@postlogin')->name('postlogin');
+Route::post('/login', 'LoginController@index')->name('index');
