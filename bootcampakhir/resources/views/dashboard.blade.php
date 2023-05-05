@@ -1,5 +1,6 @@
 @extends('template')
 @section('content')
+@extends('head')
     <div class="content">
       <div class="row">
         <div class="col-md-12">
@@ -10,17 +11,13 @@
                   <section>
                     <ul>
                       <td>
-                        <center><img src="https://rofiabdulmansyah.000webhostapp.com/fotounilak.jpg" alt="Image" height="140" width="300"></center>
+                        <center><img src="../assets/img/unilak.jpg" alt="Image" height="140" width="300"></center>
                       </td>
                       <p>
                         <center>
-                          <font color="black" size="2">Universitas Lancang Kuning atau Unilak adalah kampus swasta yang didirikan pada tahun 1982 dibawah naungan Yayasan Pendidikan Raja Ali Haji. Kampus yang hijau, asri dan nyaman berada di jantung Kota Pekanbaru bagian utara dengan letak sangat strategis di jalur tol Pekanbaru-Dumai atau transumatera.
-                            Unilak saat ini memiliki 9 fakultas dengan 19 program studi S1 dan 2 program studi pascasarjana. Diantaranya fakultas ilmu administrasi, fakultas ekonomi, fakultas teknik, fakultas hukum, fakultas pertanian, fakultas ilmu budaya, fakultas kehutanan, fakultas ilmu komputer, fakultas keguruan ilmu pendidikan dan program pascasarjana.
-                            Saat ini sumber daya manusia tenaga pengajar Unilak berpendidikan Professor, Doktor dan Magister lulusan perguruan tinggi dalam dan luar negeri. Dengan kualitas yang teruji tersertifikasi. Mahasiswa Unilak berasal dari Riau dan penjuru tanah air.
-                            Saat ini Unilak berakreditasi B, 2 program studi berakreditasi A, 19 program studi berakreditasi B dan program pascasarjana berakreditasi B.
-                      </p>
-                      Unilak juga banyak mendapatkan berbagai penghargaan diantaranya kampus berprestasi bidang olahraga oleh KONI Pekanbaru tahun 2019. Kampus kategori utama bidang penelitian oleh LLDIKTI, penghargaan dari Komisi Informasi Publik provinsi Riau. Kampus terbanyak penerima beasiswa pemprov. Riau, kampus terbanyak peraih mendali emas komnas Jakarta dan Makasar, mendali emas Asean university games, juara lomba bedat mahasiswa, juara entrepreneurship 2018 LLDIKTI, juara dunia pancak silat Singapura dll.
-                      Unilak juga telah banyak melakukan kerjasama dari 30 lembaga pemerintah dan non pemerintah. Pembelajaran di Unilak melalui program akademik, karakter, entrepeneur dengan di dukung fasilitas penunjang seperti perpustakaan, taman baca, jogging track, mesjid, wifi area, tax center, arboretum, balai kesehatan, asrama mahasiswa, canteen center, BI corner, gedung PKM, danau kampus, dan tempat prasarana penunjang olahraga. Visi unilak menjadi kampus unggul ditingkat nasional berlandaskan budaya Melayu.</font>
+                          <font color="black" size="2">Perpustakaan Universitas Lancang Kuning sebagai salah satu unit penunjang pokok Unilak yang mempunyai visi “MENJADI PUSAT LAYANAN BAHAN PUSTAKA, PUBLIKASI DAN DOKUMENTASI YANG BERBASIS TEKNOLOGI  INFORMASI DI TINGKAT REGIONAL”, fungsi dan peran Perpustakaan unilak sangat penting dan sentral dalam penyediaan sumber-sumber informasi dan kegiatan akademik lainnya yang dibutuhkan sivitas akademika Politeknik Negeri Riau. Perpustakaan unilak merupakan tempat untuk mengembangkan informasi serta pengetahuan yang dikelola oleh Universitas Lancang Kuning, sekaligus sebagai sarana edukatif untuk membantu memperlancar cakrawala dosen, tenaga pengajar dan mahasiswa dalam kegiatan belajar mengajar.
+                        </p>
+                        Kami sebagai pengelola merasa bangga sebagai bagian dalam pengelolaan perpustakaan yang berperan sebagai jantung dari sebuah perguruan tinggi Universitas Lancang Kuning. Tantangan sebagai pengelola adalah dengan kemajuan teknologi memberi semangat agar perpustakaan unilak menjadi perpustakaan modern.</font>
                       </center>
                     </ul>
                   </section>
