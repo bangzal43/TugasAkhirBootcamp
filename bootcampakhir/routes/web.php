@@ -1,5 +1,7 @@
 <?php
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\PeminjamanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/login', function () {
     return view('login');
-
 });
 
 Route::get('/logout', function () {
     return view('logout');
 });
-
-
-});
-
-Route::get('/logout', function () {
-    return view('logout');
-});
-
 
 Route::post('/postlogin','LoginController@postlogin')->name('postlogin');
 
@@ -40,10 +35,6 @@ Route::get('/logout','LoginController@logout')->name('logout');
 
 Route::get('dashboard', function () {
     return view('dashboard');
-});
-
-Route::get('kategori', function () {
-    return view('kategori');
 });
 
 Route::get('peminjaman', function () {
@@ -62,21 +53,21 @@ Route::get('petugas', function () {
     return view('petugas');
 });
 //buku
-Route::get('/buku', 'BukuController@index');
+Route::resource('buku', 'BukuController');
 Route::get('/create', 'BukuController@create');
 Route::get('/store', 'BukuController@store');
+Route::get('/cetakbuku', [BukuController::class, 'cetakbuku'])->name('cetakbuku');
 //kategori
-Route::get('/kategori', 'KategoriController@index');
-
-Route::get('/createkategori', 'KategoriController@create');
+Route::resource('kategori', 'KategoriController');
+Route::get('/create', 'KategoriController@create');
 Route::post('/store', 'KategoriController@store');
 //pengembalian
 Route::get('/pengembalian', 'PengembalianController@index');
 Route::get('/createpengembalian', 'PengembalianController@create');
 Route::post('/store', 'PengembalianController@store');
 //peminjaman
-Route::get('/peminjaman', 'PeminjamanController@index');
-Route::get('/createpeminjaman', 'PeminjamanController@create');
+Route::resource('peminjaman', 'PeminjamanController');
+Route::get('/create', 'PeminjamanController@create');
 Route::post('/store', 'PeminjamanController@store');
 //mahasiswa
 Route::get('/mahasiswa', 'MahasiswaController@index');
@@ -87,10 +78,7 @@ Route::get('/petugas', 'PetugasController@index');
 Route::get('/createpetugas', 'PetugasController@create');
 Route::post('/store', 'PetugasController@store');
 
-
-Route::get('/pengembalian', 'PengembalianController@index');
-Route::get('/peminjaman', 'PeminjamanController@index');
-Route::get('/mahasiswa', 'MahasiswaController@index');
-Route::get('/petugas', 'PetugasController@index');
-
 Route::post('/login', 'LoginController@index')->name('index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

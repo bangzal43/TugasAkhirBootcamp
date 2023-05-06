@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Kategori;
+use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -17,7 +20,7 @@ class KategoriController extends Controller
         $data = DB::table('kategori')->get();
     
             //tampilkan view barang dan kirim datanya ke view tersebut
-            return view('kategori')->with('data', $data);
+            return view('kategori.kategori')->with('data', $data);
     }
 
     /**
@@ -27,7 +30,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('createkategori');
+        return view('kategori.create');
     }
 
     /**
@@ -37,12 +40,15 @@ class KategoriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-      $kategori = new Kategori([
-          'kategori' => $request->input('kategori'),
-      ]);
-      $kategori->save();
-      return redirect('kategori');
+     {
+      $data = [
+        'id_kategori' => $request->id_kategori,
+          'kategori' => $request->kategori
+      ];
+
+      kategori::create($data);
+
+        return redirect()->route('kategori.index');
       
     }
 

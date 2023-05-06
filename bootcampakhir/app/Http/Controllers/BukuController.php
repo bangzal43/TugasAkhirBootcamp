@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
+use App\Buku;
+use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BukuController extends Controller
 {
@@ -17,9 +21,16 @@ class BukuController extends Controller
         $data = DB::table('buku')
             ->join('kategori', 'kategori.id_kategori', '=', 'buku.id_kategori')
             ->get();
-        return view('mahasiswa.buku')->with('data', $data);
+        return view('buku.buku')->with('data', $data);
     }
 
+    public function cetakbuku()
+    {
+         $data = buku::all();
+        view()->share('data', $data);
+        $pdf = PDF::loadview('buku.cetakbuku');
+        return $pdf->download('buku.cetakbuku');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +38,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('mahasiswa.create');
+        return view('buku.create');
     }
 
     /**
@@ -38,16 +49,19 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-      $buku = new Buku([
-          'judul_buku' => $request->input('judul_buku'),
-          'id_kategori' => $request->input('id_kategori'),
-          'penulis_buku' => $request->input('penulis_buku'),
-          'penerbit_buku' => $request->input('penerbit_buku'),
-          'penulis_buku' => $request->input('penulis_buku'),
-          'tahun_penerbit' => $request->input('tahun_penerbit')
-      ]);
-      $buku->save();
-      return redirect('buku');
+      $data = [
+        'id_buku' => $request->id_buku,
+          'judul_buku' => $request->judul_buku,
+          'id_kategori' => $request->id_kategori,
+          'penulis_buku' => $request->penulis_buku,
+          'penerbit_buku' => $request->penerbit_buku,
+          'penulis_buku' => $request->penulis_buku,
+          'tahun_penerbit' => $request->tahun_penerbit
+      ];
+
+      buku::create($data);
+
+        return redirect()->route('buku.index');
       
     }
 
@@ -57,9 +71,9 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_buku)
     {
-        //
+         return view('buku.ubah');
     }
 
     /**
@@ -68,9 +82,10 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_buku)
     {
-        //
+       $d = buku::where('id_buku', $id_buku)->first();
+       return view('buku.ubah')->with('d', $d);
     }
 
     /**
@@ -91,8 +106,9 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_buku)
     {
-        //
+    buku::find('id_buku')->delete();
+        return redirect()->route('buku.index');
     }
 }
