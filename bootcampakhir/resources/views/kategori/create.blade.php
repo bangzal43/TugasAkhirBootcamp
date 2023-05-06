@@ -14,11 +14,13 @@
                         <h5 class="card-title">Halaman Tambah Kategori</h5>
                   </div>
                   <div class="card-body">
-                    <form method="post" action="{{url('/store')}}">
-                      @csrf
+                     <form method="POST" action="{{ route('kategori.store') }}" >
+                     {{ csrf_field() }}
                       <p>
-                       <label for="usr">Kategori:</label>
+                       <div class="form-group">
+                        <label for="usr">Kategori:</label>
                         <input type="text" class="form-control" id="kategori" name="kategori">
+                      </div>
                       <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                     </ul>

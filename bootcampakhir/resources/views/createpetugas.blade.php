@@ -14,7 +14,7 @@
                         <h5 class="card-title">Halaman Tambah Petugas</h5>
                   </div>
                   <div class="card-body">
-                    <form method="post" action="{{url('/store')}}">
+                    <form method="post" action="{{url('store')}}">
                       @csrf
                       <p>
                       <div class="form-group">

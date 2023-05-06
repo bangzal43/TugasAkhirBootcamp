@@ -14,12 +14,12 @@
                         <h5 class="card-title">Halaman Tambah Peminjaman</h5>
                   </div>
                   <div class="card-body">
-                    <form method="post" action="{{url('/store')}}">
+                    <form method="post" action="{{ route('peminjaman.store') }}">
                       @csrf
                       <p>
                       <div class="form-group">
                         <label for="usr">Tanggal Pinjaman:</label>
-                        <input type="text" class="form-control" id="tgl_pinjaman" name="tgl_pinjaman">
+                        <input type="date" class="form-control" id="tgl_pinjaman" name="tgl_pinjaman">
                       </div>
                        <label for="usr">ID Buku:</label>
                         <input type="text" class="form-control" id="id_buku" name="id_buku">

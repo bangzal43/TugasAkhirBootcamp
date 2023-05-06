@@ -14,10 +14,14 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        $data = DB::table('peminjaman')->get();
+        $data = DB::table('peminjaman')
+            ->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')
+            ->join('mahasiswa', 'mahasiswa.nim', '=', 'peminjaman.nim')
+            ->join('petugas', 'petugas.id_petugas', '=', 'peminjaman.id_petugas')
+                    ->get();
     
             //tampilkan view barang dan kirim datanya ke view tersebut
-            return view('peminjaman')->with('data', $data);
+            return view('peminjaman.peminjaman')->with('data', $data);
     }
 
     /**
@@ -27,7 +31,7 @@ class PeminjamanController extends Controller
      */
     public function create()
     {
-        return view('createpeminjaman');
+        return view('peminjaman.create');
     }
 
     /**
@@ -38,25 +42,6 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-      $data = DB::table('peminjaman')
-    public function index(){
-    
-            //mengambil data darri database menggunakan db::table() dan disimpan ke dalam $data
-            //menggunakan ->join() untuk menggabungkan tabel lainnya
-            //diakhir get() untuk mengambil data array
-    
-            //diakhir first() jika hanya satu data yang diambil
-    
-            $data = DB::table('peminjaman')
-
-            ->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')
-            ->join('mahasiswa', 'mahasiswa.nim', '=', 'peminjaman.nim')
-            ->join('petugas', 'petugas.id_petugas', '=', 'peminjaman.id_petugas')
-                    ->get();
-    
-            //tampilkan view barang dan kirim datanya ke view tersebut
-            return view('peminjaman')->with('data', $data);
-
       
     }
 
@@ -104,7 +89,4 @@ class PeminjamanController extends Controller
     {
         //
     }
-
-        }
-
 }
