@@ -11,10 +11,16 @@
                   <section>
                     <ul>
                       <div class="col-sm-13 text-left">
+
                         <h3>Halaman Petugas</h3>
                         <p>
                         <p align="right">
                           <a href="{{url('createpetugas')}}"> <button class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></button></a>
+
+                        <h3>Halaman Pengguna Petugas</h3>
+                        <p>
+                        <p align="right"><a href="agamatambah.php"> <button class="btn btn-info"><i class="glyphicon glyphicon-plus"></i></button></a>
+
                         </p>
                         <table class="table table-striped">
                           <tr>

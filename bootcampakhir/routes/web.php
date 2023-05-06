@@ -19,11 +19,20 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login');
+
 });
 
 Route::get('/logout', function () {
     return view('logout');
 });
+
+
+});
+
+Route::get('/logout', function () {
+    return view('logout');
+});
+
 
 Route::post('/postlogin','LoginController@postlogin')->name('postlogin');
 
@@ -58,6 +67,7 @@ Route::get('/create', 'BukuController@create');
 Route::get('/store', 'BukuController@store');
 //kategori
 Route::get('/kategori', 'KategoriController@index');
+
 Route::get('/createkategori', 'KategoriController@create');
 Route::post('/store', 'KategoriController@store');
 //pengembalian
@@ -76,5 +86,11 @@ Route::post('/store', 'MahasiswaController@store');
 Route::get('/petugas', 'PetugasController@index');
 Route::get('/createpetugas', 'PetugasController@create');
 Route::post('/store', 'PetugasController@store');
+
+
+Route::get('/pengembalian', 'PengembalianController@index');
+Route::get('/peminjaman', 'PeminjamanController@index');
+Route::get('/mahasiswa', 'MahasiswaController@index');
+Route::get('/petugas', 'PetugasController@index');
 
 Route::post('/login', 'LoginController@index')->name('index');
